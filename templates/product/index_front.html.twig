@@ -1,0 +1,336 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Shop{% endblock %}
+
+{% block body %}
+  <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-section set-bg" data-setbg="{{ asset('ogani-master/img/pc.jpg')}}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>Azur Shop</h2>
+                        <div class="breadcrumb__option">
+                            <a href="./index.html">Home</a>
+                            <span>Shop</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+  <!-- Product Section Begin -->
+    <section class="product spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-5">
+                    <div class="sidebar">
+                        
+                        <div class="sidebar__item">
+                            <h4>Price</h4>
+                            <div class="price-range-wrap">
+                                <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
+                                    data-min="10" data-max="4000">
+                                    <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
+                                    <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
+                                    <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
+                                </div>
+                                <div class="range-slider">
+                                    <div class="price-input">
+                                        <input type="text" value="10">
+                                        <input type="text" value="4000">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                                    <div class="blog__sidebar__item">
+										<h4>Categories</h4>
+										<ul>
+											{% for category in categories %}
+												<li>
+
+													<div class="d-flex justify-content-between fruite-name">
+														<a href="{{ path('app_search', {'category': category.id}) }}">
+															<i class="fas fa-desktop-alt me-2"></i>
+															{{ category.name }}
+														</a>
+														<span>({{ categoryCounts[category.id] }})</span>
+													</div>
+												</li>
+											{% else %}
+												<li>
+													<div class="d-flex justify-content-between fruite-name">
+														<a href="#">
+															<i class="fas fa-desktop-alt me-2"></i>
+															No category
+														</a>
+														<span>(0)</span>
+													</div>
+												</li>
+											{% endfor %}
+											<li>
+												<div class="d-flex justify-content-between fruite-name">
+													<a href="{{ path('app_product_front') }}">
+														<i class="fas fa-desktop-alt me-2"></i>
+														<strong>all</strong>
+													</a>
+													<span>
+														<strong>({{ totalProducts }})</strong>
+													</span>
+												</div>
+											</li>
+
+										</ul>
+                                        </div>
+									
+
+                        
+                        <div class="sidebar__item">
+                            <div class="latest-product__text">
+                                <h4>Latest Products</h4>
+                                <div class="latest-product__slider owl-carousel">
+                                    <div class="latest-prdouct__slider__item">
+                                        <a href="#" class="latest-product__item">
+                                            <div class="latest-product__item__pic">
+                                                <img src="{{ asset('ogani-master/img/product/discount/13.jpg')}}"alt="">
+                                            </div>
+                                            <div class="latest-product__item__text">
+                                                <h6>Headphones</h6>
+                                                <span>35dt</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="latest-product__item">
+                                            <div class="latest-product__item__pic">
+                                                <img src="{{ asset('ogani-master/img/product/discount/14.jpg')}}" alt="">
+                                            </div>
+                                            <div class="latest-product__item__text">
+                                                <h6>PC msi gamer</h6>
+                                                <span>2379dt</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="latest-product__item">
+                                            <div class="latest-product__item__pic">
+                                                <img src="{{ asset('ogani-master/img/product/discount/11.jpg')}}" alt="">
+                                            </div>
+                                            <div class="latest-product__item__text">
+                                                <h6>Earpods</h6>
+                                                <span>55dt</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="latest-product__slider__item">
+                                        <a href="#" class="latest-product__item">
+                                            <div class="latest-product__item__pic">
+                                                <img src="{{ asset('ogani-master/img/product/discount/12.jpg') }}"alt="">
+                                            </div>
+                                            <div class="latest-product__item__text">
+                                                <h6>Speaker</h6>
+                                                <span>299dt</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="latest-product__item">
+                                            <div class="latest-product__item__pic">
+                                                <img src="{{ asset('ogani-master/img/blog/sidebar/3.jpg')}}" alt="">
+                                            </div>
+                                            <div class="latest-product__item__text">
+                                                <h6>Headphones</h6>
+                                                <span>49dt</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="latest-product__item">
+                                            <div class="latest-product__item__pic">
+                                                <img src="{{ asset('ogani-master/img/product/discount/15.jpg')}}" alt="">
+                                            </div>
+                                            <div class="latest-product__item__text">
+                                                <h6>Printer</h6>
+                                                <span>599dt</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-7">
+                    <div class="product__discount">
+                        <div class="section-title product__discount__title">
+                            <h2>Sale Off</h2>
+                        </div>
+                        <div class="row">
+                            <div class="product__discount__slider owl-carousel">
+                                <div class="col-lg-4">
+                                    <div class="product__discount__item">
+                                        <div class="product__discount__item__pic set-bg"
+                                            data-setbg="{{ asset('ogani-master/img/product/discount/13.jpg')}}">
+                                            <div class="product__discount__percent">-30%</div>
+                                            <ul class="product__item__pic__hover">
+                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product__discount__item__text">
+                                    
+                                            <h5><a href="#">Headphones</a></h5>
+                                            <div class="product__item__price">49dt <span>35dt</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="product__discount__item">
+                                        <div class="product__discount__item__pic set-bg"
+                                            data-setbg="{{ asset('ogani-master/img/product/discount/11.jpg')}}">
+                                            <div class="product__discount__percent">-20%</div>
+                                            <ul class="product__item__pic__hover">
+                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product__discount__item__text">
+                                            <h5><a href="#">Earpods</a></h5>
+                                            <div class="product__item__price">55dt<span>79dt</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="product__discount__item">
+                                        <div class="product__discount__item__pic set-bg"
+                                            data-setbg="{{ asset('ogani-master/img/product/discount/12.jpg') }}">
+                                            <div class="product__discount__percent">-20%</div>
+                                            <ul class="product__item__pic__hover">
+                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product__discount__item__text">
+                                       
+                                            <h5><a href="#">Speaker</a></h5>
+                                            <div class="product__item__price">299dt <span>399dt</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="product__discount__item">
+                                        <div class="product__discount__item__pic set-bg"
+                                            data-setbg="{{ asset('ogani-master/img/blog/sidebar/3.jpg')}}">
+                                            <div class="product__discount__percent">-20%</div>
+                                            <ul class="product__item__pic__hover">
+                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product__discount__item__text">
+                                        
+                                            <h5><a href="#">Headphones</a></h5>
+                                            <div class="product__item__price">49dt <span>75dt</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="product__discount__item">
+                                        <div class="product__discount__item__pic set-bg"
+                                            data-setbg="{{ asset('ogani-master/img/product/discount/15.jpg')}}">
+                                            <div class="product__discount__percent">-5%</div>
+                                            <ul class="product__item__pic__hover">
+                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product__discount__item__text">
+                                            
+                                            <h5><a href="#">Printer</a></h5>
+                                            <div class="product__item__price">579dt <span>599dt</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="product__discount__item">
+                                        <div class="product__discount__item__pic set-bg"
+                                            data-setbg="{{ asset('ogani-master/img/product/discount/14.jpg')}}">
+                                            <div class="product__discount__percent">-5%</div>
+                                            <ul class="product__item__pic__hover">
+                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product__discount__item__text">
+                                        
+                                            <h5><a href="#">Pc Gamer</a></h5>
+                                            <div class="product__item__price">2379dt<span>2499dt</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter__item">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-5">
+                                <div class="filter__sort">
+                                    <span>Sort By</span>
+                                    <select>
+                                        <option value="0">Default</option>
+                                        <option value="0">Default</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4">
+                                <div class="filter__found">
+                                    <h6><span>16</span> Products found</h6>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-3">
+                                <div class="filter__option">
+                                    <span class="icon_grid-2x2"></span>
+                                    <span class="icon_ul"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                    {% for product in products %}
+                    
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                          <a href="{{ path('app_product_show', {'id': product.id}) }}" class="text-decoration-none text-dark">   
+                            <div class="product__item">
+                            <div class="product__item__pic set-bg">
+                                <img src="{{ asset('uploads/' ~ product.image) }}" alt="" class="img-fluid w-100 rounded-top" style="width: 100px; height: auto;"></a>
+                                 <ul class="product__item__pic__hover">
+                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                        <li><a href="{{path('app_cart_item_add_to_cart',{'productId': product.id}) }}"><i class="fa fa-shopping-cart"></i></a></li>
+                                </ul>
+                            </div>
+                                <div class="product__item__text">
+                                    <h6><a href="#">{{ product.name }}</a></h6>
+                                    <h5>{{ product.price }} DT</h5>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        {% endfor %}
+                        
+
+
+                  
+                    </div>
+                    <div class="product__pagination">
+                        <a href="#">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#"><i class="fa fa-long-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Product Section End -->
+{% endblock %}

@@ -4,6 +4,12 @@ framework:
     #csrf_protection: true
     http_method_override: false
 
+
+
+    #CHANGE THIS TO MAKE ERROR PAGE DISAPPEAR
+    #error_controller: 'App\Controller\ExceptionController::showException'
+
+
     # Enables session support. Note that the session will ONLY be started if you read or write from it.
     # Remove or comment this section to explicitly disable session support.
     session:
